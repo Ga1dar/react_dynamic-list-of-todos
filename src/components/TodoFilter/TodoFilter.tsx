@@ -47,7 +47,7 @@ export const TodoFilter: React.FC<Props> = ({
             role="button"
             className="icon is-right has-text-grey"
             onClick={onClearQuery}
-            data-cy="clearButton"
+            data-cy="clearSearchButton"
             title="Clear"
             style={{ pointerEvents: 'auto', cursor: 'pointer' }}
           >

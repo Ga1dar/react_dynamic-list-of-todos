@@ -2,6 +2,7 @@ import React from 'react';
 import { Todo } from '../../types/Todo';
 import { User } from '../../types/User';
 import { Loader } from '../Loader';
+import classNames from 'classnames';
 
 type Props = {
   isOpen: boolean;
@@ -19,11 +20,14 @@ export const TodoModal: React.FC<Props> = ({
   onClose,
 }) => {
   return (
-    <div className={`modal ${isOpen ? 'is-active' : ''}`} data-cy="modal">
+    <div
+      className={classNames('modal', { 'is-active': isOpen })}
+      data-cy="modal"
+    >
       <div className="modal-background" onClick={onClose} />
 
       <div className="modal-card">
-        <header className="modal-card-head">
+        <header className="modal-card-head" data-cy="modal-header">
           <p className="modal-card-title">{todo?.title ?? 'Details'}</p>
 
           <button

@@ -25,7 +25,7 @@ export const TodoList: React.FC<Props> = ({ todos, selectedId, onShow }) => {
       </thead>
 
       <tbody>
-        {todos.map((t, i) => {
+        {todos.map(t => {
           const isSelected = selectedId === t.id;
 
           return (
@@ -36,11 +36,14 @@ export const TodoList: React.FC<Props> = ({ todos, selectedId, onShow }) => {
                 'has-background-info-light': isSelected,
               })}
             >
-              <td className="is-vcentered">{i + 1}</td>
+              <td className="is-vcentered">{t.id}</td>
               <td className="is-vcentered">
                 {t.completed && (
-                  <span className="icon has-text-success">
-                    <i className="fas fa-check" />
+                  <span
+                    className="icon has-text-success"
+                    data-cy="iconCompleted"
+                  >
+                    <i className="fas fa-check" data-cy="iconCompleted" />
                   </span>
                 )}
               </td>

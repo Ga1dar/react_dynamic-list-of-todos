@@ -19,6 +19,10 @@ export const TodoModal: React.FC<Props> = ({
   loading,
   onClose,
 }) => {
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <div
       className={classNames('modal', { 'is-active': isOpen })}
@@ -28,10 +32,13 @@ export const TodoModal: React.FC<Props> = ({
 
       <div className="modal-card">
         <header className="modal-card-head" data-cy="modal-header">
-          <p className="modal-card-title">{todo?.title ?? 'Details'}</p>
+          <p
+            className="modal-card-title"
+            data-cy="modal-header"
+          >{`Todo ${todo?.id}`}</p>
 
           <button
-            data-cy="closeButton"
+            data-cy="modal-close"
             type="button"
             className="delete"
             aria-label="close"
